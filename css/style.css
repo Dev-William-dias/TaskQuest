@@ -20,12 +20,20 @@ body {
   background-color: #008B8B;
 }
 
+#general {
+  width: 90%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 400px 1200px;
+  gap: 20px;
+}
+
 .space-line {
   margin: 10px auto 10px auto;
   width: 90%;
 }
 
-/* message */
+/* alert */
 .alert {
   margin: 0 auto;
   text-align: center;
@@ -101,6 +109,7 @@ body {
   gap: 10px;
   min-height: 520px;
   background: rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
 }
 
 .progress-top {
@@ -124,7 +133,7 @@ body {
   white-space: nowrap;
 }
 
-.vTrack{
+#bar-view {
   position: relative;
   border-radius: 14px;
   border: 1px solid var(--line);
@@ -135,7 +144,7 @@ body {
   margin: 6px auto 0;
 }
 
-.vFill{
+#bar-load {
   position:absolute;
   left:0;
   bottom:0;
@@ -145,33 +154,10 @@ body {
   transition: height 240ms ease;
 }
 
-.vLabel{
+#bar-status{
   text-align:center;
   color: var(--muted);
   font-size: 13px;
-}
-
-.rewardBox{
-  border-top: 1px solid var(--line);
-  padding-top: 12px;
-  display:grid;
-  gap: 8px;
-}
-
-.rewardBox .msg{
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.35;
-}
-
-.rewardBox .msg strong{ 
-  color: var(--text); 
-}
-
-.rewardBox .actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
 }
 
 /* form + table */
@@ -236,9 +222,5 @@ body {
 
 @media (max-width: 800px){
 
-  #general {
-    grid-template-columns: 1fr;
-    padding: 5px;
-  }
 
 }

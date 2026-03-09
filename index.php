@@ -15,37 +15,11 @@
         <div class="points-status" id="points-target">Meta: 100</div>
       </div>
 
-      <div>
-        <div class="vTrack" aria-label="Barra vertical de progresso">
-          <div class="vFill" id="vFill"></div>
+      <div id="progress-bar">
+        <div id="bar-view">
+          <div id="bar-load"></div>
         </div>
-        <div class="vLabel"><span id="percent">0</span>% concluído</div>
-      </div>
-
-      <div class="card">
-        <div class="small">Configurações</div>
-        <div class="row" style="margin-top:8px;">
-          <label class="w200">
-            Meta de pontos
-            <input id="goalInput" type="number" min="1" step="1" value="10">
-          </label>
-          <label class="grow">
-            Recompensa (texto)
-            <input id="rewardInput" type="text" placeholder="Ex.: 1 hora de jogo / 1 sobremesa / 1 episódio">
-          </label>
-        </div>
-        <div class="row" style="margin-top:8px;">
-          <button class="btnPrimary" id="saveSettings">Salvar configurações</button>
-          <button id="resetPoints">Zerar pontos</button>
-        </div>
-      </div>
-
-      <div class="rewardBox">
-        <div class="msg" id="rewardMsg">Defina uma recompensa e conclua tarefas para desbloquear.</div>
-        <div class="actions">
-          <button id="claimReward" class="btnPrimary" disabled>Resgatar recompensa</button>
-          <button class="default-btn btn-danger">Resetar tudo</button>
-        </div>
+        <p id="bar-status"><span id="bar-percent">0</span>% concluído</p>
       </div>
     </section>
 
@@ -58,8 +32,12 @@
           <input type="text" name="input-task" id="input-task">
         </div>
         <div class="form-grup">
+          <label for="input-task">Recompensa</label>
+          <input type="text" name="input-task" id="input-task">
+        </div>
+        <div class="form-grup">
           <select name="select-priority" id="select-priority">
-            <option value="" disabled selected>Selecione</option>
+            <option value="null" disabled selected>Prioriadade</option>
             <option value="alta">Alta</option>
             <option value="media">Media</option>
             <option value="baixa">Baixa</option>
