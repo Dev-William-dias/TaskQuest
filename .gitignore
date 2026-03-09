@@ -1,0 +1,50 @@
+# Ignorar dependências do Composer (pasta vendor)
+vendor/
+
+# Ignorar arquivos de log e cache do PHP
+*.log
+*.cache
+
+# Ignorar arquivos de configuração locais (se houver)
+.env
+.env.local
+.env.*.local
+
+# Ignorar arquivos de sistema do SO
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos do editor/IDE
+.vscode/
+.idea/
+*.iml
+.post/
+
+# Ignorar arquivos temporários e backups
+*.swp
+*.swo
+*~
+
+# Ignorar diretórios temporários comuns
+tmp/
+temp/
+cache/
+
+# Ignorar uploads temporários, se houver pasta uploads/
+uploads/temp/
+
+# Ignorar arquivos compilados, caso use algo
+*.exe
+*.dll
+*.so
+*.bkp
+
+# Ignorar arquivos de dump de banco de dados, caso tenha
+*.sqlite
+
+# Ignorar arquivos de configuração específicos (exemplo)
+config/local.php
+config/*.local.php
+
+# Ignorar arquivos e arquivos
+tests/
