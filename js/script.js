@@ -1,13 +1,17 @@
-const tasks = document.getElementById("tasksBody");
+const tasksBody = document.getElementById("tasks-body");
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  if (loadTasks) {
+  if (tasksBody) {
     loadTasks();
   }
 
-  document.querySelectorAll('.js-form').forEach(form => {
-    form.addEventListener('submit', sendForm);
+  document.addEventListener('submit', function(event) {
+    const form = event.target.closest('form');
+
+    if (form && form.classList.contains('js-form')) {
+      sendForm(event, form);
+    }
   });
 
 });
@@ -158,11 +162,9 @@ function render() {
   updateRewardUI();
 }
 
-
-function sendForm(event) {
+function sendForm(event, formEl) {
   event.preventDefault();
 
-  const formEl = event.currentTarget;
   const formData = new FormData(formEl);
 
   fetch(formEl.action, {
@@ -171,8 +173,10 @@ function sendForm(event) {
   })
   .then(res => res.json())
   .then(data => {
+    console.log(data);
     if (data.success) {
-      window.location.href = data.redirect;
+      loadTasks();
+      showAlert(data.message, data.type);
     } else {
       showAlert(data.message, data.type);
     }
@@ -197,7 +201,7 @@ function showAlert(message, type) {
 
 async function loadTasks() {
   const params = new URLSearchParams({
-    type: 'getAllTask'
+    typeGet: 'getAllTask'
   });
 
   fetch(`/Process.php?${params.toString()}`)
@@ -208,7 +212,7 @@ async function loadTasks() {
     }
   })
   .catch((error) => {
-    showAlert("Ocorreu um erro inesperado " + error.message, "danger");
+    showAlert("Ocorreu um erro inesperado", "danger");
   });
 }
 
@@ -219,9 +223,26 @@ function renderTask(list) {
 
   list.forEach(element => {
     const html = `
-          
-      `;
-
-    tasks.insertAdjacentHTML("beforeend", html);
+      <tr>
+        <td>${element.title}</td>
+        <td>${element.priority}</td>
+        <td>${element.points}</td>
+        <td id="td-action">
+          <form action="/Process.php" class="js-form" method="POST">
+            <input type="hidden" name="typePost" value="optionTask">
+            <input type="hidden" name="action" value="completed">
+            <input type="hidden" name="id" value="${element.id}">
+            <button class="default-btn btn-save" type="submit">Completo</button>
+          </form>
+          <form action="/Process.php" class="js-form" method="POST">
+            <input type="hidden" name="typePost" value="optionTask">
+            <input type="hidden" name="action" value="remove">
+            <input type="hidden" name="id" value="${element.id}">
+            <button class="default-btn btn-danger" type="submit">Remover</button>
+          </form>
+        </td>
+      </tr>
+    `;
+    tasksBody.insertAdjacentHTML("beforeend", html);
   });
 }

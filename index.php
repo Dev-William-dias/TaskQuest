@@ -25,19 +25,19 @@
 
     <section class="all-section" id="section-task">
       <div id="alert-message" class="alert py-2"></div>
-      <form id="form-task">
-        <input type="hidden" name="type" value="add-Task">
+      <form action="/Process.php" id="form-task" class="js-form" method="POST">
+        <input type="hidden" name="typePost" value="createTask">
         <div class="form-grup">
           <label for="input-task">Nova tarefa</label>
           <input type="text" name="input-task" id="input-task">
         </div>
         <div class="form-grup">
-          <label for="input-task">Recompensa</label>
-          <input type="text" name="input-task" id="input-task">
+          <label for="input-reward">Recompensa</label>
+          <input type="text" name="input-reward" id="input-reward">
         </div>
         <div class="form-grup">
           <select name="select-priority" id="select-priority">
-            <option value="null" disabled selected>Prioriadade</option>
+            <option value="" disabled selected>Prioriadade</option>
             <option value="alta">Alta</option>
             <option value="media">Media</option>
             <option value="baixa">Baixa</option>
@@ -56,7 +56,6 @@
       <table id="table-task">
         <thead id="task-thead">
           <tr>
-            <th>#</th>
             <th>Tarefas</th>
             <th>Prioriadade</th>
             <th>Valor</th>

@@ -2,16 +2,13 @@
 
 require_once("Utill.php");
 
-use PDO;
-use PDOException;
-
 class Db {
 
     private static ?Db $instance = null;
     private PDO $pdo;
 
     private string $host = 'localhost';
-    private string $dbname = 'gamification_tasks';
+    private string $dbname = 'task_manager';
     private string $user = 'developer';
     private string $pass = '1234567';
 

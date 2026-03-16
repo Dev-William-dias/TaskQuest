@@ -48,3 +48,4 @@ config/*.local.php
 
 # Ignorar arquivos e arquivos
 tests/
+logs/*

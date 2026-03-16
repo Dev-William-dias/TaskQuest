@@ -94,13 +94,7 @@ body {
   background: rgba(239, 68, 68, 0.26); 
 }
 
-.card{
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  padding: 5px;
-}
+
 
 /* barra vertical */
 #section-progress {
@@ -157,7 +151,8 @@ body {
 #bar-status{
   text-align:center;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 25px;
+  margin: 5px;
 }
 
 /* form + table */
@@ -220,7 +215,43 @@ body {
   border-bottom: 1px solid var(--line);
 }
 
-@media (max-width: 800px){
+#task-thead > tr > th:nth-child(4) {
+  width: 10%;
+}
 
+#tasks-body > tr > td {
+  font-size: 20px;
+  color: var(--text);
+}
+
+#tasks-body > tr > td:nth-child(2), #tasks-body > tr > td:nth-child(3) {
+  width: 10%;
+  text-align: center;
+}
+
+#td-action {
+  display: flex;
+  gap: 5px;
+}
+
+@media (max-width: 400px){
+
+  #general {
+    width: 100%;
+    grid-template-columns: 1fr;
+    margin: auto;
+  }
+  
+  #section-progress {
+    margin: 5px;
+  }
+
+  #task-thead > tr > th:nth-child(2), #task-thead > tr > th:nth-child(3) {
+    display: none;
+  }
+
+  #tasks-body > tr > td:nth-child(2), #tasks-body > tr > td:nth-child(3) {
+    display: none;
+  }
 
 }
